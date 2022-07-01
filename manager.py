@@ -46,7 +46,7 @@ while True:
     print(lg+'[1] Yeni hesap ekle'+n)
     print(lg+'[2] Tüm yasaklanmış hesapları filtrele'+n)
     print(lg+'[3] Belirli hesapları sil'+n)
-    print(lg+'[4] Paketi güncelle'+n)
+    print(lg+'[4] Yazılımı ingilizce diline çevir'+n)
     print(lg+'[5] Tüm hesapları görüntüle'+n)
     print(lg+'[6] Çıkış'+n)
     a = int(input('\nHangisini yapmak istiyorsun Seçimini gir: '))
