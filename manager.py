@@ -61,11 +61,11 @@ while True:
                 new_accs.append(parsed_number)
             print(f'\n{lg} [i] Saved all accounts in vars.txt')
             clr()
-            print(f'\n{lg} [*] Hesap eklendi\n')
+            print(f'\n{lg} [*] Hesap ekleme\n')
             for number in new_accs:
                 c = TelegramClient(f'sessions/{number}', 3910389 , '86f861352f0ab76a251866059a6adbd6')
                 c.start(number)
-                print(f'{lg}[+] Hesap eklendi')
+                print(f'{lg}[+] Hesap ekleme')
                 c.disconnect()
             input(f'\n Enter tuşu ile ana menü ye dönün...')
 

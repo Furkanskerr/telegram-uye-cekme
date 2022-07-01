@@ -53,7 +53,7 @@ def banner():
     for char in b:
         print(f'{random.choice(colors)}{char}{rs}')
     #print('=============SAIFALISEW1508==============')
-    print(f'{lg}Version: {w}2.0:latest{lg} | Author: {w}saifalisew1508{rs}')
+    print(f'{lg}Version: {w}2.0:latest{lg} | Author: {w}@majesteler{rs}')
 
 
 # function to clear screen
@@ -73,10 +73,10 @@ while True:
 
 # create sessions(if any) and check for any banned accounts
 # TODO: Remove code input(just to check if an account is banned)
-print('\n' + info + lg + ' Spam Varmı Kontröl ediliyor...' + rs)
+print('\n' + info + lg + ' Spam Varmı Kontrol ediliyor...' + rs)
 for a in accounts:
     phn = a[0]
-    print(f'{plus}{grey} Checking {lg}{phn}')
+    print(f'{plus}{grey} Temiz {lg}{phn}')
     clnt = TelegramClient(f'sessions/{phn}', 3910389, '86f861352f0ab76a251866059a6adbd6')
     clnt.connect()
     banned = []
@@ -89,7 +89,7 @@ for a in accounts:
             banned.append(a)
     for z in banned:
         accounts.remove(z)
-        print(info+lg+' Banned account removed[Remove permanently using manager.py]'+rs)
+        print(info+lg+' Yasaklanan hesap kaldırıldı[manager.py yazarak kalıcı olarak kaldırın]'+rs)
     time.sleep(0.5)
     clnt.disconnect()
 
@@ -129,7 +129,7 @@ try:
             scraped_grp = input(f'{INPUT}{cy} Üye çalınacak grubun linkini girin: {r}')
             index = 0
 except:
-    scraped_grp = input(f'{INPUT}{cy} Üye eklenecek grubun linkini girin: {r}')
+    scraped_grp = input(f'{INPUT}{cy} Üye Çalınacak grubun linkini girin: {r}')
     index = 0
 # load all the accounts(phonenumbers)
 accounts = []
@@ -140,9 +140,9 @@ while True:
     except EOFError:
         break
 
-print(f'{info}{lg} Total accounts: {w}{len(accounts)}')
-number_of_accs = int(input(f'{INPUT}{cy} Enter number of accounts to use: {r}'))
-print(f'{info}{cy} Choose an option{lg}')
+print(f'{info}{lg} Toplam hesaplarınız: {w}{len(accounts)}')
+number_of_accs = int(input(f'{INPUT}{cy} Üye çekmek için kaç hesap kullanılsın: {r}'))
+print(f'{info}{cy} Bir seçenek belirleyin{lg}')
 print(f'{cy}[0]{lg} Herkese açık gruba ekle')
 print(f'{cy}[1]{lg} Gizli Gruba Ekle')
 choice = int(input(f'{INPUT}{cy} Hangisini yapmak istiyorsun: {r}'))
@@ -163,7 +163,7 @@ with open('vars.txt', 'wb') as f:
 sleep_time = int(input(f'{INPUT}{cy} Kaç Saniye de bir çeksin tavsiye edilen 3{w}[{lg} Aşırı hızlı eklemek için 0 girin{w}]: {r}'))
 #print(f'{info}{lg} Gruba Katılma Başarılı {w}{number_of_accs} accounts...')
 #print(f'{grey}-'*50)
-print(f'{success}{lg} -- Üye ekleniyor {w}{len(to_use)}{lg} account(s) --')
+print(f'{success}{lg} -- Üye ekleniyor {w}{len(to_use)}{lg} Hesaplar ile(s) --')
 adding_status = 0
 approx_members_count = 0
 for acc in to_use:
@@ -177,16 +177,16 @@ for acc in to_use:
             g_hash = scraped_grp.split('/joinchat/')[1]
             try:
                 c(ImportChatInviteRequest(g_hash))
-                print(f'{plus}{grey} User: {cy}{acc_name}{lg} -- Joined group to scrape')
+                print(f'{plus}{grey} User: {cy}{acc_name}{lg} -- Gruba Katılma Başarılı')
             except UserAlreadyParticipantError:
                 pass 
         else:
             c(JoinChannelRequest(scraped_grp))
-            print(f'{plus}{grey} User: {cy}{acc_name}{lg} -- Joined group to scrape')
+            print(f'{plus}{grey} User: {cy}{acc_name}{lg} -- İşleme baslıyorum')
         scraped_grp_entity = c.get_entity(scraped_grp)
         if choice == 0:
             c(JoinChannelRequest(target))
-            print(f'{plus}{grey} User: {cy}{acc_name}{lg} -- Joined group to add')
+            print(f'{plus}{grey} User: {cy}{acc_name}{lg} -- işlem bitene kadar uygulamayı terk etmeyin')
             target_entity = c.get_entity(target)
             target_details = InputPeerChannel(target_entity.id, target_entity.access_hash)
         else:
