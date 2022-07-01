@@ -73,7 +73,7 @@ while True:
 
 # create sessions(if any) and check for any banned accounts
 # TODO: Remove code input(just to check if an account is banned)
-print('\n' + info + lg + ' Checking for banned accounts...' + rs)
+print('\n' + info + lg + ' Spam Varmı Kontröl ediliyor...' + rs)
 for a in accounts:
     phn = a[0]
     print(f'{plus}{grey} Checking {lg}{phn}')
@@ -107,7 +107,7 @@ def log_status(scraped, index):
     
 
 def exit_window():
-    input(f'\n{cy} Press enter to exit...')
+    input(f'\n{cy} Enter ile çıkış yapın...')
     clr()
     banner()
     sys.exit()
@@ -118,7 +118,7 @@ try:
     with open('status.dat', 'rb') as f:
         status = pickle.load(f)
         f.close()
-        lol = input(f'{INPUT}{cy} Resume scraping members from {w}{status[0]}{lg}? [y/n]: {r}')
+        lol = input(f'{INPUT}{cy} Bu Gruptan Tekrar Çekilsin mi evet ise y yazın hayır ise n {w}{status[0]}{lg}? [y/n]: {r}')
         if 'y' in lol:
             scraped_grp = status[0] ; index = int(status[1])
         else:
@@ -126,10 +126,10 @@ try:
                 os.system('del status.dat')
             else: 
                 os.system('rm status.dat')
-            scraped_grp = input(f'{INPUT}{cy} Public/Private group link to scrape members: {r}')
+            scraped_grp = input(f'{INPUT}{cy} Üye çalınacak grubun linkini girin: {r}')
             index = 0
 except:
-    scraped_grp = input(f'{INPUT}{cy} Public/Private group link to scrape members: {r}')
+    scraped_grp = input(f'{INPUT}{cy} Üye eklenecek grubun linkini girin: {r}')
     index = 0
 # load all the accounts(phonenumbers)
 accounts = []
@@ -143,15 +143,15 @@ while True:
 print(f'{info}{lg} Total accounts: {w}{len(accounts)}')
 number_of_accs = int(input(f'{INPUT}{cy} Enter number of accounts to use: {r}'))
 print(f'{info}{cy} Choose an option{lg}')
-print(f'{cy}[0]{lg} Add to public group')
-print(f'{cy}[1]{lg} Add to private group')
-choice = int(input(f'{INPUT}{cy} Enter choice: {r}'))
+print(f'{cy}[0]{lg} Herkese açık gruba ekle')
+print(f'{cy}[1]{lg} Gizli Gruba Ekle')
+choice = int(input(f'{INPUT}{cy} Hangisini yapmak istiyorsun: {r}'))
 if choice == 0:
-    target = str(input(f'{INPUT}{cy} Enter public group link: {r}'))
+    target = str(input(f'{INPUT}{cy} Herkese açık grubun linkini girin: {r}'))
 else:
-    target = str(input(f'{INPUT}{cy} Enter private group link: {r}'))
+    target = str(input(f'{INPUT}{cy} Gizli Grubun Linkini Girin: {r}'))
 print(f'{grey}_'*50)
-#status_choice = str(input(f'{INPUT}{cy} Do you wanna add active members?[y/n]: {r}'))
+#status_choice = str(input(f'{INPUT}{cy} Aktif üyeler eklemek istiyor musunuz?[y/n]: {r}'))
 to_use = [x for x in accounts[:number_of_accs]]
 for l in to_use: accounts.remove(l)
 with open('vars.txt', 'wb') as f:
@@ -160,10 +160,10 @@ with open('vars.txt', 'wb') as f:
     for ab in to_use:
         pickle.dump(ab, f)
     f.close()
-sleep_time = int(input(f'{INPUT}{cy} Enter delay time per request{w}[{lg}0 for None{w}]: {r}'))
-#print(f'{info}{lg} Joining group from {w}{number_of_accs} accounts...')
+sleep_time = int(input(f'{INPUT}{cy} Kaç Saniye de bir çeksin tavsiye edilen 3{w}[{lg} Aşırı hızlı eklemek için 0 girin{w}]: {r}'))
+#print(f'{info}{lg} Gruba Katılma Başarılı {w}{number_of_accs} accounts...')
 #print(f'{grey}-'*50)
-print(f'{success}{lg} -- Adding members from {w}{len(to_use)}{lg} account(s) --')
+print(f'{success}{lg} -- Üye ekleniyor {w}{len(to_use)}{lg} account(s) --')
 adding_status = 0
 approx_members_count = 0
 for acc in to_use:
