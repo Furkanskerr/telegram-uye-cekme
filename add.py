@@ -236,26 +236,26 @@ for acc in to_use:
             adding_status += 1
             print(f'{info}{grey} User: {cy}{acc_name}{lg} -- Sleep {w}{sleep_time} {lg}second(s)')
             time.sleep(sleep_time)
-        except UserPrivacyRestrictedError:
-            print(f'{minus}{grey} User: {cy}{acc_name}{lg} -- {r}User Privacy Restricted Error')
+        except Kullanıcı Gizliliği Kısıtlı Hatası:
+            print(f'{minus}{grey} User: {cy}{acc_name}{lg} -- {r}Kullanıcının Gruplara eklenme ayarları kapalı')
             continue
         except PeerFloodError:
             print(f'{error}{grey} User: {cy}{acc_name}{lg} -- {r}Peer Flood Error.')
             peer_flood_status += 1
             continue
-        except ChatWriteForbiddenError:
-            print(f'{error}{r} Can\'t add to group. Contact group admin to enable members adding')
+        except Sohbete Yazmak Hatası:
+            print(f'{error}{r} Can\'t Üye eklenecek Grupta Mesaj Yazma Kapalı')
             if index < approx_members_count:
                 log_status(scraped_grp, index)
             exit_window()
         except UserBannedInChannelError:
-            print(f'{error}{grey} User: {cy}{acc_name}{lg} -- {r}Banned from writing in groups')
+            print(f'{error}{grey} User: {cy}{acc_name}{lg} -- {r}Üye çalınacak gruptan ban yemiş olmalısın başka gruptan çalmayı dene')
             break
-        except ChatAdminRequiredError:
-            print(f'{error}{grey} User: {cy}{acc_name}{lg} -- {r}Chat Admin rights needed to add')
+        except Üye eklenecek Grupta Admin Değilsin:
+            print(f'{error}{grey} User: {cy}{acc_name}{lg} -- {r}Admin Olduğun bir gruba ekle')
             break
-        except UserAlreadyParticipantError:
-            print(f'{minus}{grey} User: {cy}{acc_name}{lg} -- {r}User is already a participant')
+        except Kullanıcı Zaten Katılımcı Hatası:
+            print(f'{minus}{grey} User: {cy}{acc_name}{lg} -- {r}Bu Kullanıcı Gruba Zaten Eklendi')
             continue
         except FloodWaitError as e:
             print(f'{error}{r} {e}')
@@ -264,7 +264,7 @@ for acc in to_use:
             print(f'{error}{r} Error in Entity')
             continue
         except KeyboardInterrupt:
-            print(f'{error}{r} ---- Adding Terminated ----')
+            print(f'{error}{r} ---- Ekleme Sonlandırılmış ----')
             if index < len(members):
                 log_status(scraped_grp, index)
             exit_window()

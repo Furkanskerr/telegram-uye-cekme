@@ -65,7 +65,7 @@ while True:
             for number in new_accs:
                 c = TelegramClient(f'sessions/{number}', 3910389 , '86f861352f0ab76a251866059a6adbd6')
                 c.start(number)
-                print(f'{lg}[+] Hesap ekleme')
+                print(f'{lg}[+] Hesap Eklendi')
                 c.disconnect()
             input(f'\n Enter tuşu ile ana menü ye dönün...')
 
