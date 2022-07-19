@@ -76,7 +76,7 @@ while True:
 print('\n' + info + lg + ' Engellenen hesaplar kontrol esiliyor...' + rs)
 for a in accounts:
     phn = a[0]
-    print(f'{plus}{grey} Checking {lg}{phn}')
+    print(f'{plus}{grey} Temiz {lg}{phn}')
     clnt = TelegramClient(f'sessions/{phn}', 3910389, '86f861352f0ab76a251866059a6adbd6')
     clnt.connect()
     banned = []
@@ -141,7 +141,7 @@ while True:
         break
 
 print(f'{info}{lg} Toplam hesaplarınız: {w}{len(accounts)}')
-number_of_accs = int(input(f'{INPUT}{cy} Enter number of accounts to use: {r}'))
+number_of_accs = int(input(f'{INPUT}{cy} Kaç hesap kullanmak istiyorsunuz: {r}'))
 print(f'{info}{cy} Choose an option{lg}')
 print(f'{cy}[0]{lg} Herkese açık Gruba ekle')
 print(f'{cy}[1]{lg} Gizli gruba ekle')
@@ -160,7 +160,7 @@ with open('vars.txt', 'wb') as f:
     for ab in to_use:
         pickle.dump(ab, f)
     f.close()
-sleep_time = int(input(f'{INPUT}{cy} Enter delay time per request{w}[{lg}0 for None{w}]: {r}'))
+sleep_time = int(input(f'{INPUT}{cy} Kaç saniye de bir üye eklenmesini istiyorsun{w}[{lg}Hesap silinmemesi için 3 yazın{w}]: {r}'))
 #print(f'{info}{lg} Gruba katılma başarılı {w}{number_of_accs} accounts...')
 #print(f'{grey}-'*50)
 print(f'{success}{lg} -- Adding members from {w}{len(to_use)}{lg} account(s) --')
